@@ -30,18 +30,18 @@ def plane_to_zig_zagged_line(x,y):
     else:
         return y * 30 + (30 - x)
 
-frame_count = 0
-try:
-    while 1:
-        im.seek(im.tell()+1)
-        resized = im.resize((30,30)).convert('RGB')
+while True:
+    try:
+        while 1:
+            im.seek(im.tell()+1)
+            resized = im.resize((30,30)).convert('RGB')
 
-        for x in range(0, resized.size[0]):
-            for y in range(0, resized.size[1]):
-                r, g, b = resized.getpixel((x, y))
-                strip.setPixelColor(plane_to_zig_zagged_line(x, y), Color(r, g, b))
-        strip.show()
+            for x in range(0, resized.size[0]):
+                for y in range(0, resized.size[1]):
+                    r, g, b = resized.getpixel((x, y))
+                    strip.setPixelColor(plane_to_zig_zagged_line(x, y), Color(r, g, b))
+            strip.show()
 
-except EOFError:
-    pass # end of sequence
+    except EOFError:
+        pass # end of sequence
 
