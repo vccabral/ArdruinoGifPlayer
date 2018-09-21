@@ -1,5 +1,5 @@
 from PIL import Image
-# from neopixel import *
+from neopixel import *
 from itertools import product
 
 # LED strip configuration:
