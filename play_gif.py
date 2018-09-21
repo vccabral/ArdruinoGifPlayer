@@ -14,9 +14,6 @@ LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL)
 strip.begin()
 
-im = Image.open("giphy.gif")
-
-
 def zig_zagged_line_to_plane(n):
     y = n // 30
     if (n // 30) % 2 == 0:
@@ -31,6 +28,7 @@ def plane_to_zig_zagged_line(x,y):
         return y * 30 + (30 - x)
 
 while True:
+    im = Image.open("giphy.gif")
     try:
         while 1:
             im.seek(im.tell()+1)
