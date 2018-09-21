@@ -16,6 +16,20 @@ strip.begin()
 
 im = Image.open("giphy.gif")
 
+
+def zig_zagged_line_to_plane(n):
+    y = n // 30
+    if (n // 30) % 2 == 0:
+        return (y, n - y * 30)
+    else:
+        return (y, 29 - (n - y * 30))
+
+def plane_to_zig_zagged_line(x,y):
+    if y % 2 == 1:
+        return x + y * 30
+    else:
+        return y * 30 + (30 - x)
+
 frame_count = 0
 try:
     while 1:
@@ -25,7 +39,7 @@ try:
         for x in range(0, resized.size[0]):
             for y in range(0, resized.size[1]):
                 r, g, b = resized.getpixel((x, y))
-                strip.setPixelColor(x + y*30, Color(r, g, b))
+                strip.setPixelColor(plane_to_zig_zagged_line(x, y), Color(r, g, b))
         strip.show()
 
 except EOFError:
