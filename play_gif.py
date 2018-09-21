@@ -25,7 +25,7 @@ try:
         for x in range(0, resized.size[0]):
             for y in range(0, resized.size[1]):
                 r, g, b = resized.getpixel((x, y))
-                strip.setPixelColor(x + y*30, r, g, b)
+                strip.setPixelColor(x + y*30, Color(r, g, b))
         strip.show()
 
 except EOFError:
