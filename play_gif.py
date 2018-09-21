@@ -36,8 +36,10 @@ while True:
     try:
         while 1:
             im.seek(im.tell()+1)
-            cropped = im.crop((0, 0, 100, 100))
-            resized = cropped.resize((30,30)).convert('RGB')
+            # width = im.size()[0]
+            # height = im.size()[1]
+            # cropped = im.crop((0, 0, 100, 100))
+            resized = im.resize((30,30)).convert('RGB')
 
             for x in range(0, resized.size[0]):
                 for y in range(0, resized.size[1]):
