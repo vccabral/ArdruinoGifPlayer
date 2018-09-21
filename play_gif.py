@@ -37,7 +37,7 @@ while True:
             for x in range(0, resized.size[0]):
                 for y in range(0, resized.size[1]):
                     r, g, b = resized.getpixel((x, y))
-                    strip.setPixelColor(plane_to_zig_zagged_line(x, y), Color(r, g, b))
+                    strip.setPixelColor(plane_to_zig_zagged_line(x, y), Color(r//25, g//25, b//25))
             strip.show()
 
     except EOFError:
