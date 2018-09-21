@@ -27,7 +27,7 @@ try:
             for y in range(0, resized.size[1]):
                 location = (x,y)
                 color = im.getpixel(location)
-                strip.setPixelColor(i, color)
+                strip.setPixelColor(x + y*30, color)
         strip.show()
 
 except EOFError:
